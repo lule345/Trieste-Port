@@ -21,3 +21,7 @@
     - Snout
   - type: Body
     prototype: MimicSmart
+  - type: GibAction
+    actionPrototype: MimicGibAction
+    allowedStates:
+    - Alive #try removing this and see if it breaks everything, yeah?
