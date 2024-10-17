@@ -3499,10 +3499,22 @@
   name: Overgrown Mimic
   parent: MobMimic
   id: MobMimicSmart
-  description: This thing's a lot bigger than the rest...
+  description: This thing's a lot bigger than the others...
   components:
   - type: MobThresholds
     thresholds:
       0: Alive
       100: Dead
+  - type: PointLight
+    radius: 0
+    energy: 0
+    color: "#FFFF33"
+  - type: MeleeWeapon
+    soundHit:
+      path: /Audio/Effects/bite.ogg
+    angle: 0
+    animation: WeaponArcClaw
+    damage:
+      types:
+        Slash: 15
 
