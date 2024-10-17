@@ -47,7 +47,7 @@
   components:
   - type: IsDeadIC
   - type: Body
-    prototype: AnimalMimicSmart
+    prototype: animal
 
 - type: entity
   id: OrganMimicStomach
