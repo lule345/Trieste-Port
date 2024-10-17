@@ -58,6 +58,17 @@
   - type: Metabolizer
     metabolizerTypes: [ Bloodsucker ]
 
+- type: entity
+  id: OrganMimicInk
+  parent: OrganHumanLiver
+  noSpawn: true
+  name: ink sac
+  description: "A nasty ink sac"
+  components:
+  - type: Nymph
+    entityPrototype: AdminInstantEffectSmoke10
+
+
 - type: body
   id: AnimalMimic
   name: "mimic"
@@ -92,6 +103,7 @@
         lungs: OrganHumanLungs
         stomach: OrganMimicStomach
         liver: OrganHumanLiver
+        ink: OrganMimicInk
         kidneys: OrganHumanKidneys
     right_arm:
       part: RightArmHuman
