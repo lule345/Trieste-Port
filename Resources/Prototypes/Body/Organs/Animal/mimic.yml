@@ -28,3 +28,52 @@
       organs:
         tumor: OrganTumor # example of OrganTumor being applied to a body prototype
 
+- type: entity
+  id: OrganMimicBrain
+  parent: OrganHumanBrain
+  noSpawn: true
+  name: festering brain
+  description: "The abyss stares back..."
+  components:
+  - type: Nymph
+    entityPrototype: OrganTumorBrain
+
+- type: entity
+  id: OrganTumorBrain
+  parent: MobMimicSmart
+  noSpawn: true
+  name: mimic 
+  components:
+  - type: IsDeadIC
+  - type: Body
+    prototype: AnimalMimicSmart
+
+- type: entity
+  id: OrganMimicStomach
+  parent: OrganBloodsuckerStomach
+  name: hijacked stomach
+  noSpawn: true
+  components:
+  - type: Metabolizer
+    metabolizerTypes: [ Bloodsucker ]
+
+- type: body
+  id: AnimalMimic
+  name: "mimic"
+  root: torso
+  slots:
+    torso:
+      part: TorsoAnimal
+      organs:
+        tumor: OrganTumor # example of OrganTumor being applied to a body prototype
+
+- type: body
+  id: AnimalMimicSmart
+  name: "mimic"
+  root: torso
+  slots:
+    torso:
+      part: TorsoAnimal
+      organs:
+        brain: OrganMimicBrain
+        stomach: OrganMimicStomach
