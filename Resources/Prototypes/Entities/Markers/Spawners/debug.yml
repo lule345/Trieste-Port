@@ -12,3 +12,18 @@
   - type: ConditionalSpawner
     prototypes:
     - MobHuman
+
+- type: entity
+  name: Mimic Urist Spawner
+  id: SpawnMobHumanMimic
+  parent: MarkerBase
+  suffix: DEBUG
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: Mobs/Species/Human/parts.rsi
+      state: full
+  - type: ConditionalSpawner
+    prototypes:
+    - BaseMobHumanMimic
