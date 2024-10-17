@@ -37,6 +37,7 @@
   components:
   - type: Nymph
     entityPrototype: OrganTumorBrain
+    transferMind: true
 
 - type: entity
   id: OrganTumorBrain
