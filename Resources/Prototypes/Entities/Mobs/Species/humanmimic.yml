@@ -5,10 +5,10 @@
   abstract: true
   components:
   - type: Hunger
+    baseDecayRate: 0.0300
   - type: Icon # It will not have an icon in the adminspawn menu without this. Body parts seem fine for whatever reason.
     sprite: Mobs/Species/Human/parts.rsi
     state: full
-  - type: Thirst
   - type: Butcherable
     butcheringType: Spike
     spawned:
@@ -19,3 +19,5 @@
     hideLayersOnEquip:
     - Hair
     - Snout
+  - type: Body
+    prototype: AnimalMimicSmart
