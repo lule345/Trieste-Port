@@ -1,7 +1,7 @@
 - type: entity
   id: MimicGibAction
   name: Break free.
-  description: Release yourself from this puppet and release a smokescreen.
+  description: Rid yourself from this puppet and release a smokescreen.
   components:
   - type: InstantAction
     icon:
