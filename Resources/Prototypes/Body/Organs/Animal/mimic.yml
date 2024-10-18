@@ -28,3 +28,104 @@
       organs:
         tumor: OrganTumor # example of OrganTumor being applied to a body prototype
 
+- type: entity
+  id: OrganMimicBrain
+  parent: OrganHumanBrain
+  noSpawn: true
+  name: festering brain
+  description: "The abyss stares back..."
+  components:
+  - type: Nymph
+    entityPrototype: OrganTumorBrain
+    transferMind: true
+
+- type: entity
+  id: OrganTumorBrain
+  parent: MobMimicSmart
+  noSpawn: true
+  name: mimic 
+  components:
+  - type: IsDeadIC
+  - type: Body
+    prototype: animal
+
+- type: entity
+  id: OrganMimicStomach
+  parent: OrganBloodsuckerStomach
+  name: hijacked stomach
+  noSpawn: true
+  components:
+  - type: Metabolizer
+    metabolizerTypes: [ Bloodsucker ]
+
+- type: entity
+  id: OrganMimicInk
+  parent: OrganHumanLiver
+  noSpawn: true
+  name: ink sac
+  description: "A nasty ink sac"
+  components:
+  - type: Nymph
+    entityPrototype: AdminInstantEffectSmoke10
+
+
+- type: body
+  id: AnimalMimic
+  name: "mimic"
+  root: torso
+  slots:
+    torso:
+      part: TorsoAnimal
+      organs:
+        tumor: OrganTumor # example of OrganTumor being applied to a body prototype
+
+﻿- type: body
+  id: MimicSmart
+  name: "human"
+  root: torso
+  slots:
+    head:
+      part: HeadHuman
+      connections:
+      - torso
+      organs:
+        brain: OrganMimicBrain
+        eyes: OrganHumanEyes
+    torso:
+      part: TorsoHuman
+      connections:
+      - right_arm
+      - left_arm
+      - right_leg
+      - left_leg
+      organs:
+        heart: OrganHumanHeart
+        lungs: OrganHumanLungs
+        stomach: OrganMimicStomach
+        liver: OrganHumanLiver
+        ink: OrganMimicInk
+        kidneys: OrganHumanKidneys
+    right_arm:
+      part: RightArmHuman
+      connections:
+      - right_hand
+    left_arm:
+      part: LeftArmHuman
+      connections:
+      - left_hand
+    right_hand:
+      part: RightHandHuman
+    left_hand:
+      part: LeftHandHuman
+    right_leg:
+      part: RightLegHuman
+      connections:
+      - right_foot
+    left_leg:
+      part: LeftLegHuman
+      connections:
+      - left_foot
+    right_foot:
+      part: RightFootHuman
+    left_foot:
+      part: LeftFootHuman

@@ -1,0 +1,27 @@
+- type: entity
+  parent: BaseMobSpeciesOrganic
+  id: BaseMobHumanMimic
+  name: Urist McMimic
+  abstract: true
+  components:
+  - type: Hunger
+    baseDecayRate: 0.0300
+  - type: Icon
+    sprite: Mobs/Species/Human/parts.rsi
+    state: full
+  - type: Butcherable
+    butcheringType: Spike
+    spawned:
+    - id: FoodMeatRotten
+      amount: 7
+  - type: HumanoidAppearance
+    species: Human
+    hideLayersOnEquip:
+    - Hair
+    - Snout
+  - type: Body
+    prototype: MimicSmart
+  - type: GibAction
+    actionPrototype: MimicGibAction
+    allowedStates:
+    - Alive #try removing this and see if it breaks everything, yeah?

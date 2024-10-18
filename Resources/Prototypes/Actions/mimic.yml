@@ -1,0 +1,12 @@
+- type: entity
+  id: MimicGibAction
+  name: Break free.
+  description: Rid yourself from this puppet and release a smokescreen.
+  components:
+  - type: InstantAction
+    icon:
+      sprite: Mobs/Species/Diona/organs.rsi
+      state: brain
+    event: !type:GibActionEvent {}
+    checkCanInteract: false
+    checkConsciousness: false
