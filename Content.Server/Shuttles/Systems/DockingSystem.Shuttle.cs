@@ -304,52 +304,38 @@ public sealed partial class DockingSystem
    /// Checks whether the shuttle can warp to the specified position.
    /// </summary>
    private bool ValidSpawn(MapGridComponent grid, Matrix3x2 matty, Angle angle, FixturesComponent shuttleFixturesComp, bool isMap)
-   {
-       var transform = new Transform(Vector2.Transform(Vector2.Zero, matty), angle);
+{
+    var transform = new Transform(Vector2.Transform(Vector2.Zero, matty), angle);
+    
+    foreach (var fix in shuttleFixturesComp.Fixtures.Values)
+    {
+        var polyShape = (PolygonShape) fix.Shape;
+        var aabb = polyShape.ComputeAABB(transform, 0);
+        aabb = aabb.Enlarged(-0.01f);
 
-       // Because some docking bounds are tight af need to check each chunk individually
-       foreach (var fix in shuttleFixturesComp.Fixtures.Values)
-       {
-           var polyShape = (PolygonShape) fix.Shape;
-           var aabb = polyShape.ComputeAABB(transform, 0);
-           aabb = aabb.Enlarged(-0.01f);
-
-           // If it's a map check no hard collidable anchored entities overlap
-           if (isMap)
-           {
-               foreach (var tile in grid.GetLocalTilesIntersecting(aabb))
-               {
-                   var anchoredEnumerator = grid.GetAnchoredEntitiesEnumerator(tile.GridIndices);
-
-                   while (anchoredEnumerator.MoveNext(out var anc))
-                   {
-                       if (!_physicsQuery.TryGetComponent(anc, out var physics) ||
-                           !physics.CanCollide ||
-                           !physics.Hard)
-                       {
-                           continue;
-                       }
-
-                       return false;
-                   }
-               }
-           }
-           // If it's not a map check it doesn't overlap the grid.
-           else
-           {
-               if (grid.GetLocalTilesIntersecting(aabb).Any())
-                   return false;
-           }
-       }
-
-       return true;
-   }
-
-   public List<Entity<DockingComponent>> GetDocks(EntityUid uid)
-   {
-       _dockingSet.Clear();
-       _lookup.GetChildEntities(uid, _dockingSet);
-
-       return _dockingSet.ToList();
-   }
+        if (isMap)
+        {
+            foreach (var tile in grid.GetLocalTilesIntersecting(aabb))
+            {
+                var anchoredEnumerator = grid.GetAnchoredEntitiesEnumerator(tile.GridIndices);
+                while (anchoredEnumerator.MoveNext(out var anc))
+                {
+                    if (!_physicsQuery.TryGetComponent(anc, out var physics) ||
+                        !physics.CanCollide ||
+                        !physics.Hard)
+                    {
+                        continue;
+                    }
+                    return false; // If there's a colliding hard entity, docking is invalid
+                }
+            }
+        }
+        else
+        {
+            if (grid.GetLocalTilesIntersecting(aabb).Any())
+                return true; // Allow docking if only tiles are intersecting, no hard objects
+        }
+    }
+    return true;
 }
+
