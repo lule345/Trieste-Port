@@ -1,3 +1,4 @@
+using System.Linq;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Buckle.Components;
 using Content.Shared.Movement.Events;
@@ -7,6 +8,7 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Timing;
+using Robust.Shared.Map;
 
 namespace Content.Shared.GravityFalling
 {
@@ -17,7 +19,8 @@ namespace Content.Shared.GravityFalling
         [Dependency] private readonly INetManager _net = default!;
         [Dependency] private readonly SharedAudioSystem _audio = default!;
         [Dependency] private readonly SharedGravitySystem _gravitySystem = default!;
-
+        [Dependency] private readonly SharedTransformSystem _transform = default!;
+        
         public override void Initialize()
         {
             base.Initialize();
@@ -38,7 +41,7 @@ namespace Content.Shared.GravityFalling
                 if (_timing.CurTime < chasm.NextDeletionTime)
                     continue;
 
-                QueueDel(uid);
+                QueueDel(uid); // This can be modified to teleport instead of delete
             }
         }
 
@@ -69,6 +72,24 @@ namespace Content.Shared.GravityFalling
 
             if (playSound)
                 _audio.PlayPredicted(entity);
+
+            // Modify to teleport instead of delete
+            TeleportToFallDestination(entity);
+        }
+
+        private void TeleportToFallDestination(EntityUid entity)
+        {
+            // Find the nearest FallDestination entity
+            var fallDestinations = EntityManager.EntityQuery<FallDestination>().ToList();
+            if (fallDestinations.Any())
+            {
+                var fallDestination = fallDestinations.First();
+                var destinationCoords = Transform(fallDestination.Owner).Coordinates;
+                _transform.SetCoordinates(entity, destinationCoords);
+
+                // Play sound or other effects if needed
+                _audio.PlayPredicted(fallDestinationSound, entity);
+            }
         }
     }
 }
