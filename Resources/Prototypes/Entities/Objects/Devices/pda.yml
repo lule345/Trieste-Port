@@ -1,6 +1,6 @@
 - type: entity
   abstract: true
-  parent: [ BaseItem, StorePresetUplink, StorePresetUplinkNT ] #PDA's have uplinks so they have to inherit the data.
+  parent: [ BaseItem, StorePresetUplink] #PDA's have uplinks so they have to inherit the data.
   id: BasePDA
   name: PDA
   description: Personal Data Assistant.
@@ -353,6 +353,36 @@
   components:
   - type: Pda
     id: SalvageIDCard
+    state: pda-miner
+  - type: PdaBorderColor
+    borderColor: "#af9366"
+    accentVColor: "#8900c9"
+  - type: Icon
+    state: pda-miner
+
+- type: entity
+  parent: BasePDA
+  id: PilotPDA
+  name: pilot PDA
+  description: Protocol III, protect the PDA.
+  components:
+  - type: Pda
+    id: PilotIDCard
+    state: pda-miner
+  - type: PdaBorderColor
+    borderColor: "#af9366"
+    accentVColor: "#8900c9"
+  - type: Icon
+    state: pda-miner
+
+- type: entity
+  parent: BasePDA
+  id: BasinTechPDA
+  name: basin technician PDA
+  description: It's completely waterlogged.
+  components:
+  - type: Pda
+    id: BasinTechIDCard
     state: pda-miner
   - type: PdaBorderColor
     borderColor: "#af9366"

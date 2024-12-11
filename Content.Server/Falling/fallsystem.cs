@@ -12,6 +12,7 @@ using Content.Shared.Popups;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
 using Robust.Shared.GameObjects;
+using Content.Shared.Gravity;
 
 namespace Content.Server.Falling
 {
@@ -36,6 +37,12 @@ namespace Content.Server.Falling
         {
             if (args.OldParent == null || args.Transform.GridUid != null || TerminatingOrDeleted(owner)) // If you came from space or are switching to another valid grid, nothing happens.
                 return;
+
+            if (HasComp<GhostComponent>(owner))
+            return;
+
+            if (HasComp<TriesteComponent>(args.OldParent))
+            {
 
             // Try to find an object with the FallingDestinationComponent
             var destination = EntityManager.EntityQuery<FallingDestinationComponent>().FirstOrDefault();
@@ -66,6 +73,8 @@ namespace Content.Server.Falling
             _popup.PopupEntity(Loc.GetString("fell-to-seafloor"), owner, PopupType.LargeCaution);
             // Randomly teleports you in a radius around the landing zone
             TeleportRandomly(owner, component);
+
+            }
         }
 
         private void TeleportRandomly(EntityUid owner, FallSystemComponent component)

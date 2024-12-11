@@ -19,6 +19,13 @@ ghost-role-information-familiar-rules = You are a [color=#6495ed][bold]Familiar[
                                         You don't remember any of your previous life, and you don't remember anything you learned as a ghost.
                                         You are allowed to remember knowledge about the game in general, such as how to cook, how to use objects, etc.
                                         You are absolutely [color=red]NOT[/color] allowed to remember, say, the name, appearance, etc. of your previous character.
+
+ghost-role-information-mech-rules = You are a [color=#6495ed][bold]Mech[/bold][/color]. Serve the interests of your pilot, whatever those may be.
+                                        You don't remember any of your previous life, and you don't remember anything you learned as a ghost.
+                                        You must follow your protocols to the best of your ability and work with your pilot in tandem.
+                                        When your pilot enters, you should hand over manual control to them unless it conflicts with Protocol 3.
+                                        You are absolutely [color=red]NOT[/color] allowed to remember, say, the name, appearance, etc. of your previous character.
+
 ghost-role-information-silicon-rules = You are a [color=#6495ed][bold]Silicon[/bold][/color]. Obey your laws. You are a Free Agent if you are not currently bound by any laws.
                                        You don't remember any of your previous life, and you don't remember anything you learned as a ghost.
                                        You are allowed to remember knowledge about the game in general, such as how to cook, how to use objects, etc.
@@ -212,6 +219,15 @@ ghost-role-information-traveling-chef-description = You are a chef on a travelin
 
 ghost-role-information-settler-name = Settler
 ghost-role-information-settler-description = You live at a outpost not affiliated with, but near, Trieste. Feel free to relax and build a community in the depths! (Do not attack each other.)
+
+ghost-role-information-pirate-name = Pirate
+ghost-role-information-pirate-description = YAARGH!! Ye' be livin in yer pirate cove, near that wretched trade port's legs hidin' from the cops. Could be a good time for some plunderin' though...
+
+ghost-role-information-pirate-captain-name = Pirate Captain
+ghost-role-information-pirate-captain-description = Yer pirate lads built this place to hide from those SolGov dogs. Spirits are down, despite the booze. Maybe a good ol' raid will lighten their moods.
+
+ghost-role-information-hermit-name = Stranded Hermit
+ghost-role-information-hermit-description = The last thing you remember is the blaring alarms and cracking steel as your ship's failing engines sent you barreling off-course. Barely making it to a life pod and floating for who-knows how long in a frozen sleep, you've finally been awoken.
 
 ghost-role-information-disaster-victim-name = Disaster Victim
 ghost-role-information-disaster-victim-description = You were rescued in an escape pod from another station that suffered a terrible fate. Perhaps you will be found and rescued.

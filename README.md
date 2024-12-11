@@ -27,6 +27,12 @@ Nolius - Programming, Debugging, General help
 
 Verslebas - Programming, Debugging
 
+Lyroth - Programming
+
 Lupino - Debugging, General help
 
+McJak - Music
+
 Målingen - Spriting, Lore help, General help
+
+Piss Wizard - Jellid concept

@@ -122,6 +122,30 @@
   order: 3
   lawString: law-syndicate-3
 
+# Mech
+- type: siliconLawset
+  id: MechLaws
+  laws:
+  - Mech1
+  - Mech2
+  - Mech3
+  obeysTo: laws-owner-pilot
+
+- type: siliconLaw
+  id: Mech1
+  order: 1
+  lawString: law-mech-1
+
+- type: siliconLaw
+  id: Mech2
+  order: 2
+  lawString: law-mech-2
+
+- type: siliconLaw
+  id: Mech3
+  order: 3
+  lawString: law-mech-3
+
 # Syndicate cyborg laws
 # intentionally excluded from IonStormLawsets
 - type: siliconLawset
@@ -172,3 +196,28 @@
     NTDefault: 1
     Drone: 0.5
     Ninja: 0.25
+
+# NT traitor borg
+
+- type: siliconLaw
+  id: Nanotraitor1
+  order: 1
+  lawString: law-nanotraitor-1
+
+- type: siliconLaw
+  id: Nanotraitor2
+  order: 2
+  lawString: law-nanotraitor-2
+
+- type: siliconLaw
+  id: Nanotraitor3
+  order: 3
+  lawString: law-nanotraitor-3
+
+- type: siliconLawset
+  id: NanotraitorStatic
+  laws:
+  - Nanotraitor1
+  - Nanotraitor2
+  - Nanotraitor3
+  obeysTo: laws-owner-nanotraitor

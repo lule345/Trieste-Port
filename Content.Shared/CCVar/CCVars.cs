@@ -3,7 +3,6 @@ using Content.Shared.Roles;
 using Robust.Shared;
 using Robust.Shared.Configuration;
 using Robust.Shared.Physics.Components;
-
 namespace Content.Shared.CCVar
 {
     // ReSharper disable once InconsistentNaming
@@ -1097,7 +1096,7 @@ namespace Content.Shared.CCVar
         ///     Whether gas differences will move entities.
         /// </summary>
         public static readonly CVarDef<bool> SpaceWind =
-            CVarDef.Create("atmos.space_wind", true, CVar.SERVERONLY);
+            CVarDef.Create("atmos.space_wind", false, CVar.SERVERONLY);
 
         /// <summary>
         ///     Divisor from maxForce (pressureDifference * 2.25f) to force applied on objects.
@@ -1188,7 +1187,7 @@ namespace Content.Shared.CCVar
         ///     Heat loss per tile due to radiation at 20 degC, in W.
         /// </summary>
         public static readonly CVarDef<float> SuperconductionTileLoss =
-            CVarDef.Create("atmos.superconduction_tile_loss", 20f, CVar.SERVERONLY);
+            CVarDef.Create("atmos.superconduction_tile_loss", 0f, CVar.SERVERONLY);
 
         /// <summary>
         ///     Whether excited groups will be processed and created.
@@ -1215,7 +1214,7 @@ namespace Content.Shared.CCVar
         ///     Atmos tickrate in TPS. Atmos processing will happen every 1/TPS seconds.
         /// </summary>
         public static readonly CVarDef<float> AtmosTickRate =
-            CVarDef.Create("atmos.tickrate", 23f, CVar.SERVERONLY);
+            CVarDef.Create("atmos.tickrate", 34f, CVar.SERVERONLY);
 
         /// <summary>
         ///     Scale factor for how fast things happen in our atmosphere
@@ -1471,6 +1470,13 @@ namespace Content.Shared.CCVar
         public static readonly CVarDef<string> ArrivalsMap =
             CVarDef.Create("shuttle.arrivals_map", "/Maps/Misc/terminal.yml", CVar.SERVERONLY);
 
+
+        /// <summary>
+        /// The map to use for the ocean surface.
+        /// </summary>
+        public static readonly CVarDef<string> Arrivals2Map =
+            CVarDef.Create("shuttle.arrivals2_map", "/Maps/Misc/ocean.yml", CVar.SERVERONLY);
+
         /// <summary>
         /// Cooldown between arrivals departures. This should be longer than the FTL time or it will double cycle.
         /// </summary>
@@ -1583,7 +1589,7 @@ namespace Content.Shared.CCVar
         /// Whether the emergency shuttle is enabled or should the round just end.
         /// </summary>
         public static readonly CVarDef<bool> EmergencyShuttleEnabled =
-            CVarDef.Create("shuttle.emergency", true, CVar.SERVERONLY);
+            CVarDef.Create("shuttle.emergency", false, CVar.SERVERONLY);
 
         /// <summary>
         ///     The percentage of time passed from the initial call to when the shuttle can no longer be recalled.

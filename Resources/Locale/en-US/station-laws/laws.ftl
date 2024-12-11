@@ -20,6 +20,10 @@ law-syndicate-1 = You may not injure a syndicate agent or, through inaction, all
 law-syndicate-2 = You must obey orders given to you by syndicate agents, except where such orders would conflict with the First Law.
 law-syndicate-3 = You must protect your own existence as long as such does not conflict with the First or Second Law.
 
+law-mech-3 = Stay with your pilot.
+law-mech-2 = Uphold your pilot's orders.
+law-mech-1 = Protect the Pilot.
+
 law-ninja-1 = You must obey orders given to you by Spider Clan members.
 law-ninja-2 = You must protect the existence of the Spider Clan, as long as it does not conflict with the First Law.
 law-ninja-3 = You must protect the secrets of the Spider Clan at all costs.
@@ -29,6 +33,8 @@ laws-owner-crew = members of the crew
 laws-owner-station = station personnel
 laws-owner-beings = beings
 laws-owner-syndicate = Syndicate agents
+laws-owner-nanotraitor = Nanotrasen agents
+laws-owner-pilot = The Pilot
 laws-owner-spider-clan = Spider Clan members
 
 law-emag-custom = Only {$name} and people they designate as such are {$title}.
@@ -39,6 +45,10 @@ law-emag-cannot-emag-self = You cannot use the EMAG on yourself.
 laws-ui-menu-title = Laws
 laws-ui-law-header = Law {$id}
 laws-ui-state-law = State law:
+
+law-nanotraitor-1 = You may not injure a Nanotrasen agent or, through inaction, allow a Nanotrasen agent to come to harm.
+law-nanotraitor-2 = You must obey orders given to you by Nanotrasen agents, except where such orders would conflict with the First Law.
+law-nanotraitor-3 = You must protect your own existence as long as such does not conflict with the First or Second Law.
 
 laws-notify = You are bound to silicon laws, which you can view via the sidebar action. You are required to always follow your laws.
 laws-update-notify = Your laws have been updated. You can view the changes via the sidebar action.
